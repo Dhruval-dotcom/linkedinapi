@@ -28,7 +28,7 @@ if(isset($_GET['code'])){
 <body>  
     <div class="container">
         <form id="postdata">
-            <div class="brand-logo"><img src="LinkedIn.png"></div>
+            <div class="brand-logo"><img src="css/LinkedIn.png"></div>
             <div class="brand-title">LinkedIn</div>
             <div class="inputs">
                 <a href="<?php echo $url; ?>">login</a>

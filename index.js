@@ -60,7 +60,7 @@ $("#postdata").on("submit", function (e) {
           `<a href="createarticle.php">Article</a>
           <a href="createpost.php">Post</a>
           <a href="createpost.php">Text</a><a href="logout.php">Logout</a><br><br>
-          <img width="200px" src="LinkedIn.png"><div class="brand-title">LinkedIn</div>
+          <img width="200px" src="css/LinkedIn.png"><div class="brand-title">LinkedIn</div>
           <h3>Post created successfully!!!</h3>`
         );
         $(".brand-logo").css("display", "none");
@@ -75,18 +75,26 @@ $("#postdata").on("submit", function (e) {
   }
 });
 
+var satis = true;
+$("#input-tags").on("input", function(e) {
+  $('#tagerror').css('display','none');
+  if(/[^0-9A-Za-z]/.test(e.target.value)){
+    $('#tagerror').css('display','block');
+    satis = false;
+  }
+});
 
 $("#input-tags").keydown(function(e){
-  if(e.which == 13 && e.target.value!=''){
-    $('.container-article').css('height','850px');
-    $('.container-post').css('height','780px');
-    $('#tags').append(`<div class="chip">
-      ${e.target.value}
-      <span class="closebtn" onclick="this.parentElement.remove()">&times;</span>
-    </div> `);
-    let tag_val = $("input[name='tags']").val();
-    $("input[name='tags']").val(tag_val + ' #' + e.target.value);
-    console.log($("input[name='tags']").val());
-    e.target.value='';
-  }
+    if(e.which == 13 && e.target.value!='' && satis){
+      $('.container-article').css('height','850px');
+      $('.container-post').css('height','780px');
+      $('#tags').append(`<div class="chip">
+        ${e.target.value}
+        <span class="closebtn" onclick="this.parentElement.remove()">&times;</span>
+      </div> `);
+      let tag_val = $("input[name='tags']").val();
+      $("input[name='tags']").val(tag_val + ' #' + e.target.value);
+      console.log($("input[name='tags']").val());
+      e.target.value='';
+    }
 });

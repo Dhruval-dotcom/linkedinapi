@@ -32,6 +32,7 @@ session_start();
                 <textarea name="desc" id="" placeholder="Description" cols="30" rows="10"></textarea>
                 <label>Tags</label>
                 <input type="text" id="input-tags" placeholder="Tags"/>
+                <div id="tagerror">Special Characters Not allowed</div>
                 <div id="tags"></div>
                 <input type="text" name="tags" style="display:none">
                 <label>File</label>
